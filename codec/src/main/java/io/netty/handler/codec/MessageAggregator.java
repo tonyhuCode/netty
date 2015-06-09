@@ -79,8 +79,8 @@ public abstract class MessageAggregator<I, S, C extends ByteBufHolder, O extends
     }
 
     private static void validateMaxContentLength(int maxContentLength) {
-        if (maxContentLength <= 0) {
-            throw new IllegalArgumentException("maxContentLength must be a positive integer: " + maxContentLength);
+        if (maxContentLength < 0) {
+            throw new IllegalArgumentException("maxContentLength must be a non-negative integer: " + maxContentLength);
         }
     }
 
